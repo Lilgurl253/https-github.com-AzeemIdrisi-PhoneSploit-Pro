@@ -152,6 +152,11 @@ def connect():
         f"\n{color.CYAN}Enter target phone's IP Address       {color.YELLOW}Example : 192.168.1.23{color.WHITE}"
     )
     ip = input("> ")
+    print(
+        f"\n{color.CYAN}Enter now with port of ADB service    {color.YELLOW}Example : 5555{color.WHITE}"
+    )
+    port = input("> ")
+    
     if ip == "":
         print(
             f"\n{color.RED} Null Input\n{color.GREEN} Going back to Main Menu{color.WHITE}"
@@ -163,7 +168,7 @@ def connect():
             os.system(
                 "adb kill-server > docs/hidden.txt 2>&1&&adb start-server > docs/hidden.txt 2>&1"
             )
-            os.system("adb connect " + ip + ":5555")
+            os.system("adb connect " + ip + ":" + port)
         else:
             print(
                 f"\n{color.RED} Invalid IP Address\n{color.GREEN} Going back to Main Menu{color.WHITE}"
